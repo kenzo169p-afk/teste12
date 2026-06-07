@@ -3185,6 +3185,8 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
   /* Sales Conversion Enhancements */
   :root {
       --sales-accent: #FF6600; /* High-converting vibrant orange */
+      --whatsapp-green: #25D366; /* Official WhatsApp Green */
+      --whatsapp-green-hover: #128C7E;
   }
   
   /* Force global button styles to sales accent */
@@ -3192,9 +3194,7 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
   button, 
   .elementor-button-wrapper a, 
   input[type="submit"], 
-  .wpr-button,
-  .topchoice-contact-whatsapp,
-  a[href*="wa.me"] {
+  .wpr-button {
       background-color: var(--sales-accent) !important;
       color: #FFFFFF !important;
       border-color: var(--sales-accent) !important;
@@ -3204,18 +3204,38 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
       box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4) !important;
       border-radius: 8px !important;
   }
+
+  /* Specific styling for WhatsApp buttons to keep them GREEN */
+  .topchoice-contact-whatsapp,
+  a[href*="wa.me"] {
+      background-color: var(--whatsapp-green) !important;
+      color: #FFFFFF !important;
+      border-color: var(--whatsapp-green) !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      transition: all 0.3s ease !important;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4) !important;
+      border-radius: 8px !important;
+  }
   
   /* Hover effects to make it dynamic and interesting */
   a.elementor-button:hover, 
   button:hover, 
   .elementor-button-wrapper a:hover, 
   input[type="submit"]:hover,
-  .wpr-button:hover,
-  .topchoice-contact-whatsapp:hover,
-  a[href*="wa.me"]:hover {
+  .wpr-button:hover {
       transform: translateY(-3px) scale(1.02) !important;
       box-shadow: 0 6px 20px rgba(255, 102, 0, 0.6) !important;
       background-color: #E65C00 !important; /* Slightly darker orange on hover */
+      color: #FFFFFF !important;
+  }
+
+  /* Hover effects for WhatsApp buttons */
+  .topchoice-contact-whatsapp:hover,
+  a[href*="wa.me"]:hover {
+      transform: translateY(-3px) scale(1.02) !important;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6) !important;
+      background-color: var(--whatsapp-green-hover) !important;
       color: #FFFFFF !important;
   }
   
