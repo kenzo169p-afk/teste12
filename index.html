@@ -3207,7 +3207,8 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 
   /* Specific styling for WhatsApp buttons to keep them GREEN */
   .topchoice-contact-whatsapp,
-  a[href*="wa.me"] {
+  a[href*="wa.me"],
+  .topchoice-form-submit {
       background-color: var(--whatsapp-green) !important;
       color: #FFFFFF !important;
       border-color: var(--whatsapp-green) !important;
@@ -3232,7 +3233,8 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 
   /* Hover effects for WhatsApp buttons */
   .topchoice-contact-whatsapp:hover,
-  a[href*="wa.me"]:hover {
+  a[href*="wa.me"]:hover,
+  .topchoice-form-submit:hover {
       transform: translateY(-3px) scale(1.02) !important;
       box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6) !important;
       background-color: var(--whatsapp-green-hover) !important;
@@ -3275,7 +3277,8 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
   header, 
   .elementor-location-header, 
   [data-elementor-type="header"],
-  .elementor-section-wrap > section:first-child {
+  .elementor-section-wrap > section:first-child,
+  .elementor-nav-menu--main {
     position: sticky !important;
     top: 0;
     z-index: 99999 !important; /* Forces header to be above everything */
@@ -3284,6 +3287,14 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
     -webkit-backdrop-filter: blur(10px) !important;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05) !important;
     transition: all 0.3s ease;
+    overflow: visible !important; /* Prevents dropdowns from getting clipped */
+  }
+  
+  /* Ensure header wrappers also do not clip content */
+  .elementor-location-header > .elementor-container,
+  .elementor-location-header > .elementor-section,
+  [data-elementor-type="header"] > .elementor-section {
+    overflow: visible !important;
   }
 
   /* Fix for sub-menus / dropdowns getting cut off by sections below */
@@ -3292,6 +3303,8 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
   ul.sub-menu {
       z-index: 999999 !important;
       position: absolute !important;
+      overflow: visible !important;
+      visibility: visible !important;
   }
 
   /* 3. Floating WhatsApp Button */
