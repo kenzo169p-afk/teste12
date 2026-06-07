@@ -3271,16 +3271,27 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
     }
   }
 
-  /* 2. Glassmorphism Sticky Header */
-  header, .elementor-location-header {
+  /* 2. Glassmorphism Sticky Header & Z-Index Fixes */
+  header, 
+  .elementor-location-header, 
+  [data-elementor-type="header"],
+  .elementor-section-wrap > section:first-child {
     position: sticky !important;
     top: 0;
-    z-index: 9999;
-    background: rgba(255, 255, 255, 0.85) !important;
+    z-index: 99999 !important; /* Forces header to be above everything */
+    background: rgba(255, 255, 255, 0.95) !important;
     backdrop-filter: blur(10px) !important;
     -webkit-backdrop-filter: blur(10px) !important;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05) !important;
     transition: all 0.3s ease;
+  }
+
+  /* Fix for sub-menus / dropdowns getting cut off by sections below */
+  .elementor-nav-menu--dropdown, 
+  .sub-menu, 
+  ul.sub-menu {
+      z-index: 999999 !important;
+      position: absolute !important;
   }
 
   /* 3. Floating WhatsApp Button */
